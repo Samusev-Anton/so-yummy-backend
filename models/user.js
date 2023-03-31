@@ -7,17 +7,17 @@ const userSignUpSchema = Schema(
   {
     name: {
       type: String,
-      required: [true, "Set name for contact"],
+      // required: [true, "Set name for contact"],
       minlength: 4,
     },
     email: {
       type: String,
-      required: [true, " email is required"],
+      // required: [true, " email is required"],
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
+      // required: [true, "Password is required"],
       minlength: 6,
     },
     subscription: {
