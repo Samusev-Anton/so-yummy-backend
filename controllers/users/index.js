@@ -7,11 +7,13 @@ const updateAvatarToCloud = require("./uplodeAvatarToCloud");
 const verifyEmail = require("./verifyEmail");
 const sendTempPassword = require("./sendTempPassword");
 const changePassword = require("./changePassword");
+const subscribe = require("./subscribe");
 
 module.exports = {
   signUp,
   signIn,
   logOut,
+  subscribe,
   updateSubscription,
   avatarUpdate,
   updateAvatarToCloud,

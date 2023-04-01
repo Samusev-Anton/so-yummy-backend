@@ -1,4 +1,3 @@
-
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
@@ -16,7 +15,7 @@ const recipeSchema = Schema(
         "Beef",
         "Dessert",
         "Breakfast",
-        "Chiken",
+        "Chicken",
         "Goad",
         "Lamp",
         "Miscellaneous",
@@ -25,7 +24,7 @@ const recipeSchema = Schema(
         "Seafood",
         "Side",
         "Vegan",
-        "Vegetarian"
+        "Vegetarian",
       ],
 
       // required: [true, " email is required"],
@@ -56,16 +55,13 @@ const recipeSchema = Schema(
   { versionKey: false, timestamps: true }
 );
 
-
 const joiRecipeSchema = Joi.object({
   title: Joi.string().required(),
   instructions: Joi.string().required(),
   description: Joi.string().required().min(6),
 });
 
-
 recipeSchema.post("save", handleMongooseError);
-
 
 const Recipe = model("recipe", recipeSchema);
 
@@ -73,8 +69,3 @@ module.exports = {
   Recipe,
   joiRecipeSchema,
 };
-
-
-
-
- 
