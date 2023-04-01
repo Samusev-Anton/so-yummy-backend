@@ -9,7 +9,7 @@ const recipesCategory = async (req, res) => {
   //   { $limit: 13 }, // Optional limit to the number of categories to return
   // ]);
 
-  const result = await Recipe.find({ category: category });
+  const result = await Recipe.findAll({ category: category });
 
   res.status(201).json({
     status: "success",
