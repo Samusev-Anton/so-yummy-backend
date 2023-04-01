@@ -3,6 +3,9 @@ const { HttpError } = require("../../helpers");
 
 const removeContact = async (req, res, next) => {
   const { contactId } = req.params;
+
+
+  
   const result = await Contact.findByIdAndRemove(contactId);
   if (!result) {
     throw new HttpError(404, `Not Found ID=${contactId}`);
