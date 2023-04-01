@@ -8,6 +8,8 @@ dotenv.config();
 const contactsRouter = require("./routes/api/contacts");
 const userRouter = require("./routes/api/users");
 const authRouter = require("./routes/api/currentUser");
+const recipesRouter = require("./routes/api/recipes");
+
 
 const app = express();
 
@@ -21,6 +23,8 @@ app.use(express.static("public"));
 
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/recipes/", recipesRouter);
+
 app.use("/api/contacts", contactsRouter);
 
 app.use((req, res) => {
