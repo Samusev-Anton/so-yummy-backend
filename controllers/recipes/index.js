@@ -1,5 +1,7 @@
-const listRecipes = require("./listRecipes");
+const listCategories = require("./listCategories");
+const recipesMainPage = require('./recipesMainPage')
 
 module.exports = {
-  listRecipes,
+  listCategories,
+  recipesMainPage,
 };

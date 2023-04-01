@@ -12,7 +12,8 @@ const router = express.Router();
 
 const { recipes: ctrl } = require("../../controllers");
 
-router.get("/category", ctrlWrraper(ctrl.listRecipes));
+router.get("/categories", ctrlWrraper(ctrl.listCategories));
+router.get("/main", ctrlWrraper(ctrl.recipesMainPage));
 
 // router.get("/:contactId", auth, isValidId, ctrlWrraper(ctrl.getContactById));
 

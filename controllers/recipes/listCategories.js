@@ -1,5 +1,5 @@
 // const { Recipe } = require("../../models");
-const RECIPES = [
+const LIST = [
   "Beef",
   "Dessert",
   "Breakfast",
@@ -15,13 +15,12 @@ const RECIPES = [
   "Vegetarian",
 ];
 
-const listRecipes = async (req, res, next) => {
-  
+const listCategories = async (req, res, next) => {
   res.json({
     status: "success",
     code: 200,
-    data: RECIPES,
+    data: LIST,
   });
 };
 
-module.exports = listRecipes;
+module.exports = listCategories;
