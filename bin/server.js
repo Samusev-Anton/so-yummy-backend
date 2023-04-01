@@ -1,7 +1,7 @@
 const app = require("../app");
 const mongoose = require("mongoose");
 //
-const http = require("http").Server(app);
+// const http = require("http").Server(app);
 // const socket = require("socket.io")(http, {
 //   cors: { origin: "http://localhost:3000" },
 // });
@@ -29,8 +29,8 @@ mongoose
   .set("strictQuery", true)
   .connect(DB_HOST)
   .then(() => {
-    // app.listen(PORT);
-    http.listen(PORT);
+    app.listen(PORT);
+    // http.listen(PORT);
     console.log(`Server running. Use our API on port: ${PORT}`);
   })
   .catch((error) => {
