@@ -9,7 +9,7 @@ const recipesMainPage = async (req, res, next) => {
     const result = await Recipe.aggregate([
       { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
       { $project: { firstFour: { $slice: ["$items", 4] } } },
-      { $limit: 10 }, // Optional limit to the number of categories to return
+      { $limit: 13 }, // Optional limit to the number of categories to return
     ]);
 
   res.status(201).json({
