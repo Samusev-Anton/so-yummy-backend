@@ -1,17 +1,20 @@
-const { MongoClient, ObjectId } = require("mongodb");
+const { ObjectId } = require("mongodb");
 
 const { Ingredient, Recipe } = require("../../models");
 
 const ingredientSearch = async (req, res) => {
   const { ingredient = "" } = req.body;
-  const result = await Ingredient.find({
+  const searchIngredient = await Ingredient.find({
     ttl: { $regex: ingredient, $options: "i" },
   });
+  const idIngredient = searchIngredient.map((i) => i._id);
 
-  const result2 = await Recipe.find({
+  const result = await Recipe.find({
     ingredients: {
       $elemMatch: {
-        id: ObjectId("640c2dd963a319ea671e367d"),
+        id: {
+          $in: [ObjectId(idIngredient[0]), ObjectId(idIngredient[1])],
+        },
       },
     },
   });
@@ -19,15 +22,9 @@ const ingredientSearch = async (req, res) => {
   res.status(201).json({
     status: "success",
     code: 201,
-    data: result2,
+    data: result,
   });
 };
 
 module.exports = ingredientSearch;
 
-//   const resultId = result.map((item) => item._id);
-//   const searchId = JSON.stringify(result[0]._id);
-
-//   const result2 = await Recipe.find({
-//     ingredients: { $elemMatch: { id: "640c2dd963a319ea671e372e" } },
-//   });
