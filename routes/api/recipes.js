@@ -16,7 +16,7 @@ router.get("/categories", ctrlWrraper(ctrl.listCategories));
 router.get("/main", ctrlWrraper(ctrl.recipesMainPage));
 router.get("/:category", ctrlWrraper(ctrl.recipesCategory));
 router.get("/description/:id", ctrlWrraper(ctrl.recipeById));
-router.get("/search", ctrlWrraper(ctrl.searchList));
+router.get("/", ctrlWrraper(ctrl.searchList));
 
 // router.get("/:contactId", auth, isValidId, ctrlWrraper(ctrl.getContactById));
 
