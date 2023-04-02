@@ -6,7 +6,6 @@ const gravatar = require("gravatar");
 // const { sendEmail } = require("../../helpers");
 
 const signUp = async (req, res, next) => {
-  console.log('inside signUp');
   const { name, email, password } = req.body;
   const user = await User.findOne({ email });
   if (user) {

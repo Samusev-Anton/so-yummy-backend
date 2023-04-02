@@ -3,7 +3,7 @@ const LIST = [
   "Beef",
   "Dessert",
   "Breakfast",
-  "Chiken",
+  "Chicken",
   "Goad",
   "Lamp",
   "Miscellaneous",
