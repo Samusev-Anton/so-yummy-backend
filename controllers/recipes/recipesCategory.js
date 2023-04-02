@@ -2,7 +2,7 @@ const { Recipe } = require("../../models");
 
 const recipesCategory = async (req, res) => {
   const { category } = req.params;
-  console.log(category);
+  console.log(req.body);
   // const result = await Recipe.aggregate([
   //   { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
   //   { $project: { firstFour: { $slice: ["$items", 8] } } },
