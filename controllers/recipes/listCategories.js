@@ -1,19 +1,19 @@
 // const { Recipe } = require("../../models");
 const LIST = [
-  "Beef",
-  "Dessert",
-  "Breakfast",
-  "Chicken",
-  "Goat",
-  "Lamb",
-  "Miscellaneous",
-  "Pasta",
-  "Pork",
-  "Seafood",
-  "Starter",
-  "Side",
-  "Vegan",
-  "Vegetarian",
+  "beef",
+  "dessert",
+  "breakfast",
+  "chicken",
+  "goat",
+  "lamb",
+  "miscellaneous",
+  "pasta",
+  "pork",
+  "seafood",
+  "starter",
+  "side",
+  "vegan",
+  "vegetarian",
 ];
 
 const listCategories = async (req, res, next) => {
