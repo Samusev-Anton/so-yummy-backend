@@ -10,6 +10,7 @@ const userRouter = require("./routes/api/users");
 const authRouter = require("./routes/api/currentUser");
 const recipesRouter = require("./routes/api/recipes");
 const ingredientsRouter = require("./routes/api/ingredients");
+const popularRecipesRouter = require('./routes/api/popular')
 
 
 const app = express();
@@ -26,6 +27,9 @@ app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/recipes/", recipesRouter);
 app.use("/api/ingredients/", ingredientsRouter);
+app.use("/api/popular/", popularRecipesRouter);
+
+
 
 
 
