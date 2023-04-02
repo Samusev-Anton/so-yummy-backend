@@ -52,6 +52,9 @@ const recipeSchema = Schema(
       type: String,
       //   default: null,
     },
+    ingredients: {
+      type: Array,
+    },
   },
   { versionKey: false, timestamps: true }
 );

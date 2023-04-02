@@ -8,20 +8,13 @@ const ingredientSearch = async (req, res) => {
     ttl: { $regex: ingredient, $options: "i" },
   });
 
-  //   const resultId = result.map((item) => item._id);
-//   const searchId = JSON.stringify(result[0]._id);
-
-  //   const result2 = await Recipe.find({
-  //     ingredients: { $elemMatch: { id: "640c2dd963a319ea671e372e" } },
-  //   });
   const result2 = await Recipe.find({
     ingredients: {
       $elemMatch: {
-        id: ObjectId("640c2dd963a319ea671e372e"),
+        id: ObjectId("640c2dd963a319ea671e367d"),
       },
     },
   });
-
 
   res.status(201).json({
     status: "success",
@@ -31,3 +24,10 @@ const ingredientSearch = async (req, res) => {
 };
 
 module.exports = ingredientSearch;
+
+//   const resultId = result.map((item) => item._id);
+//   const searchId = JSON.stringify(result[0]._id);
+
+//   const result2 = await Recipe.find({
+//     ingredients: { $elemMatch: { id: "640c2dd963a319ea671e372e" } },
+//   });
