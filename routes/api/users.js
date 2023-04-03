@@ -2,8 +2,15 @@ const express = require("express");
 
 const router = express.Router();
 const { users: ctrl } = require("../../controllers");
-const { auth, ctrlWrraper, validation, upload } = require("../../middlewares");
-const { uploadCloud } = require("../../middlewares/uploadCloud");
+const {
+  auth,
+  ctrlWrraper,
+  validation,
+  uploadAvatar,
+} = require("../../middlewares");
+
+// закоментировал ввиду ненадобности
+// const { uploadCloud } = require("../../middlewares/uploadCloud");
 const {
   joiSignUpSchema,
   joiSignInSchema,
@@ -25,21 +32,29 @@ router.patch(
   ctrlWrraper(ctrl.updateSubscription)
 );
 
+// для работы Cloudinary
 router.patch(
   "/avatars",
   auth,
-  upload.single("avatar"),
-  // validation(joiAvatarSchema),
-  ctrlWrraper(ctrl.avatarUpdate)
+  uploadAvatar.single("avatar"),
+  ctrlWrraper(ctrl.updateAvatarImage)
 );
 
-router.patch(
-  "/cloudavatars",
-  auth,
-  uploadCloud.single("avatar"),
-  // validation(joiAvatarSchema),
-  ctrlWrraper(ctrl.updateAvatarToCloud)
-);
+// Закоментировал строки ввиду ненадобности
+// router.patch(
+//   "/avatars",
+//   authenticate,
+//   uploadAvatar.single("avatar"),
+//   ctrl.updateAvatarImage
+// );
+
+// router.patch(
+//   "/cloudavatars",
+//   auth,
+//   uploadCloud.single("avatar"),
+//   // validation(joiAvatarSchema),
+//   ctrlWrraper(ctrl.updateAvatarToCloud)
+// );
 
 router.patch("/verify/:verificationToken", ctrlWrraper(ctrl.verifyEmail));
 
