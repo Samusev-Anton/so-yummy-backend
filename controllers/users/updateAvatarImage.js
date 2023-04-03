@@ -1,7 +1,7 @@
 const cloudinary = require("cloudinary").v2;
 const path = require("path");
-const { User } = require("../models/user");
-const { HttpError } = require("../helpers");
+const { User } = require("../../models");
+const { HttpError } = require("../../helpers");
 
 const { CLOUDINARY_NAME, CLOUDINARY_KEY, CLOUDINARY_SECRET } = process.env;
 
