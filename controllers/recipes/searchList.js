@@ -1,7 +1,8 @@
 const { Recipe } = require("../../models");
 
 const searchList = async (req, res) => {
-  console.log(req.params.title);
+  console.log(req.params);
+  console.log(req.query);
   // const objForSearch = req.body;
   // const key = Object.keys(objForSearch);
   // const value = Object.values(objForSearch);
@@ -32,7 +33,7 @@ const searchList = async (req, res) => {
   // }
 
   const result = await Recipe.find({
-    title: { $regex: req.params.title, $options: "i" },
+    title: { $regex: req.query.title, $options: "i" },
   });
 
   // const result = {(key[0] === "title") ?
