@@ -5,11 +5,15 @@ const recipesCategory = async (req, res) => {
   // const { _id } = req.user;
   const { page = 1, limit = 10 } = req.query;
   const skip = (page - 1) * limit;
-  // const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };  
-  const result = await Recipe.find({ category: category }, "", {
-    skip,
-    limit: Number(limit),
-  })
+  // const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };
+  const result = await Recipe.find(
+    { categoty: { $regex: category, $options: "i" } },
+    "",
+    {
+      skip,
+      limit: Number(limit),
+    }
+  );
   // .populate("owner", "_id email");
   // const result = await Recipe.find({ category: category });
 
@@ -21,5 +25,3 @@ const recipesCategory = async (req, res) => {
 };
 
 module.exports = recipesCategory;
-
-
