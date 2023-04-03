@@ -2,12 +2,13 @@ const { Recipe } = require("../../models");
 
 const recipesCategory = async (req, res) => {
   const { category } = req.params;
+  console.log(category);
   // const { _id } = req.user;
   const { page = 1, limit = 10 } = req.query;
   const skip = (page - 1) * limit;
   // const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };
   const result = await Recipe.find(
-    { categoty: { $regex: category, $options: "i" } },
+    { category: { $regex: category, $options: "i" } },
     "",
     {
       skip,
