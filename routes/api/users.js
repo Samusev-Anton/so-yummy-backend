@@ -23,7 +23,7 @@ router.post("/signin", validation(joiSignInSchema), ctrlWrraper(ctrl.signIn));
 
 router.get("/logout", auth, ctrlWrraper(ctrl.logOut));
 
-router.get("/subscribe", auth, ctrlWrraper(ctrl.subscribe));
+router.post("/subscribe", auth, ctrlWrraper(ctrl.subscribe));
 
 router.patch(
   "/subscription",

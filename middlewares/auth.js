@@ -9,13 +9,13 @@ const auth = async (req, res, next) => {
   const { authorization = "" } = req.headers;
   const [bearer, token] = authorization.split(" ");
   if (bearer !== "Bearer") {
-    throw new Unauthorized();
+    throw new Unauthorized("You are not logged in, please login");
   }
   try {
     const { id } = jwt.verify(token, SECRET_KEY);
     const user = await User.findById(id);
     if (!user || !user.token) {
-      throw new Unauthorized();
+      throw new Unauthorized("You are not logged in, please login");
     }
 
     req.user = user;
