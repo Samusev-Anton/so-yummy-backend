@@ -8,7 +8,8 @@ const addRecipe = async (req, res, next) => {
   }
   const { path: url } = req.file;
   const recipe = req.body;
-  recipe.thumb = url;
+  recipe.thumb = req.file ? url : "";
+  recipe.owner = _id;
 
   const newRecipe = await Recipe.create(recipe);
 
