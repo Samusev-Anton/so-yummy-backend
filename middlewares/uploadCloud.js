@@ -1,49 +1,30 @@
-// const multer = require("multer");
-// const cloudinary = require("cloudinary");
-// const { HttpError } = require("../helpers");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
 
-// const dotenv = require("dotenv");
-// dotenv.config();
+const { CLOUDINARY_NAME, CLOUDINARY_KEY, CLOUDINARY_SECRET } = process.env;
 
-// cloudinary.config({
-//   cloud_name: process.env.CLOUD_NAME,
-//   api_key: process.env.API_KEY,
-//   api_secret: process.env.API_SECRET,
-// });
+cloudinary.config({
+  cloud_name: CLOUDINARY_NAME,
+  api_key: CLOUDINARY_KEY,
+  api_secret: CLOUDINARY_SECRET,
+});
 
-// const memoryStorage = multer.memoryStorage();
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "recipes",
+  allowedFormats: ["jpg", "png"],
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+  params: {
+    width: 600,
+    height: 600,
+    crop: "fill",
+  },
+});
 
-// const uploadCloud = multer({
-//   storage: memoryStorage,
-// });
+const uploadCloud = multer({ storage });
 
-// const { uploader } = cloudinary;
+module.exports = uploadCloud;
 
-// const uploadToCloudinary = async (fileString, format) => {
-//   try {
-//     // console.log(fileString);
-//     // console.log(format);
-//     const dataString = `data:image/${format};base64,${fileString}`;
-//     const res = await uploader.upload(dataString, {
-//       folder: "avatars",
-//       transformation: { width: 100, crop: "fill" },
-//     });
-//     // console.log(res);
-
-//     return res;
-//   } catch (error) {
-//     throw HttpError(500, error);
-//   }
-// };
-
-// const destroyToCloudinary = async (avatarCloudId) => {
-//   await uploader.destroy(avatarCloudId, (err, result) => {
-//     console.log(err, result);
-//   });
-// };
-
-// module.exports = {
-//   uploadCloud,
-//   uploadToCloudinary,
-//   destroyToCloudinary,
-// };

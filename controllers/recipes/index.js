@@ -4,6 +4,8 @@ const recipesCategory = require("./recipesCategory");
 const recipeById = require("./recipeById");
 const searchList = require("./searchList");
 const popularRecipes= require('./popularRecipes');
+const addRecipe = require("./addRecipe");
+
 
 module.exports = {
   listCategories,
@@ -12,4 +14,5 @@ module.exports = {
   recipeById,
   searchList,
   popularRecipes,
+  addRecipe,
 };
