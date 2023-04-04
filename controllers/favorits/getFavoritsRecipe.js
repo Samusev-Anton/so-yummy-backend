@@ -1,20 +1,23 @@
-const { User } = require("../../models");
-const HttpError = require("../../helpers/HttpError");
+const { Recipe } = require("../../models");
+// const HttpError = require("../../helpers/HttpError");
 
 const getFavoritsRecipe = async (req, res, next) => {
   const { favoritsRecipe } = req.user;
   console.log(favoritsRecipe);
 
-  // const result = await User.findById(favoritsRecipe);
-  // if (!result) {
-  //   throw HttpError(404, `Not Found ID=${favoritsRecipe}`);
-  // }
+  const result = await Recipe.find({
+    favoritsRecipe: {
+      $elemMatch: {
+        _id: {
+          $in: [favoritsRecipe[0], favoritsRecipe[1]],
+        },
+      },
+    },
+  });
   res.json({
     status: "success",
     code: 200,
-    // data: {
-    //   result,
-    // },
+    data: result,
   });
 };
 

@@ -9,6 +9,7 @@ const ingredientSearch = async (req, res) => {
     ttl: { $regex: ingredients, $options: "i" },
   });
   const idIngredient = searchIngredient.map((i) => i._id);
+  console.log(idIngredient);
 
   const result = await Recipe.find({
     ingredients: {
