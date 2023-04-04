@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const { users: ctrl } = require("../../controllers");
+const { favorits } = require("../../controllers");
 const {
   auth,
   ctrlWrraper,
@@ -61,5 +62,19 @@ router.patch("/verify/:verificationToken", ctrlWrraper(ctrl.verifyEmail));
 router.get("/:email", ctrlWrraper(ctrl.sendTempPassword));
 
 router.patch("/password", ctrlWrraper(ctrl.changePassword));
+
+///favorite
+router.get(
+  "/favorite/:favorite",
+  auth,
+  ctrlWrraper(favorits.addRecipeToFavorits)
+);
+router.post("/favorite", auth, ctrlWrraper(favorits.getFavoritsRecipe));
+
+router.delete(
+  "/favorite/:favorite",
+  auth,
+  ctrlWrraper(favorits.deleteFavoritsRecipe)
+);
 
 module.exports = router;

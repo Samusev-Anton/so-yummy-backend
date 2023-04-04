@@ -2,7 +2,8 @@ const contacts = require("./contacts");
 const users = require("./users");
 const current = require("./currentUsers");
 const recipes = require("./recipes");
-const ingredients = require('./ingredients')
+const ingredients = require("./ingredients");
+const favorits = require("./favorits");
 
 module.exports = {
   contacts,
@@ -10,4 +11,5 @@ module.exports = {
   current,
   recipes,
   ingredients,
+  favorits,
 };

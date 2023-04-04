@@ -37,6 +37,11 @@ const userSignUpSchema = Schema(
       type: String,
       default: null,
     },
+    favoritsRecipe: [
+      {
+        type: Schema.Types.ObjectId,
+      },
+    ],
     // verify: {
     //   type: Boolean,
     //   default: false,
