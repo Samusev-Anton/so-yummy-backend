@@ -11,9 +11,14 @@ const {
 const router = express.Router();
 
 const { ingredients: ctrl } = require("../../controllers");
+const { shopping: contr } = require("../../controllers");
 
 router.get("/", ctrlWrraper(ctrl.ingredientSearch));
 router.get("/list", ctrlWrraper(ctrl.ingredientList));
+
+router.post("/:ingridient", ctrlWrraper(contr.addIngridient));
+router.get("/shopping", ctrlWrraper(contr.getShoppingIngridients));
+router.delete("/:ingridient", contr.deleteIngridients);
 
 // router.get("/:contactId", auth, isValidId, ctrlWrraper(ctrl.getContactById));
 
