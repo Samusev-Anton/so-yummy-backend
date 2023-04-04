@@ -6,7 +6,7 @@ const addRecipeToFavorits = async (req, res, next) => {
 
   console.log(_id);
   console.log(recipe);
-  console.log(User.favoritsRecipe);
+
   const newFavorits = await User.findByIdAndUpdate(_id, {
     $push: {
       favoritsRecipe: recipe,
