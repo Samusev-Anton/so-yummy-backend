@@ -48,6 +48,9 @@ const recipeSchema = Schema(
       type: String,
       //   required: true,
     },
+    owner: {
+      type: String,
+    },
     preview: {
       type: String,
       //   default: null,
