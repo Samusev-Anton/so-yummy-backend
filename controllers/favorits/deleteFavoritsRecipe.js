@@ -1,9 +1,9 @@
-const { User, Recipe } = require("../../models");
-const { HttpError } = require("../../helpers");
-const { ObjectId } = require("mongodb");
+const { User } = require("../../models");
+// const { HttpError } = require("../../helpers");
+// const { ObjectId } = require("mongodb");
 
 const deleteFavoritsRecipe = async (req, res, next) => {
-  const { _id } = req.params;
+  const { _id } = req.user;
   const recipe = req.params.favorite;
 
   // const result = await User.findByIdAndRemove(_id, {

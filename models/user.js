@@ -42,6 +42,12 @@ const userSignUpSchema = Schema(
         type: Schema.Types.ObjectId,
       },
     ],
+    shoppingList: [
+      {
+        type: Schema.Types.ObjectId,
+      },
+    ],
+
     // verify: {
     //   type: Boolean,
     //   default: false,

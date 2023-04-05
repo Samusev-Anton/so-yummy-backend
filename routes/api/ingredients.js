@@ -2,9 +2,9 @@ const express = require("express");
 
 const {
   ctrlWrraper,
-  validation,
+  // validation,
   auth,
-  isValidId,
+  // isValidId,
 } = require("../../middlewares");
 // const { Recipe, joiRecipeSchema } = require("../../models/recipe");
 
@@ -16,30 +16,8 @@ const { shopping: contr } = require("../../controllers");
 router.get("/", ctrlWrraper(ctrl.ingredientSearch));
 router.get("/list", ctrlWrraper(ctrl.ingredientList));
 
-router.post("/:ingridient", ctrlWrraper(contr.addIngridient));
-router.get("/shopping", ctrlWrraper(contr.getShoppingIngridients));
-router.delete("/:ingridient", contr.deleteIngridients);
-
-// router.get("/:contactId", auth, isValidId, ctrlWrraper(ctrl.getContactById));
-
-// router.post("/", auth, validation(joiSchema), ctrlWrraper(ctrl.addContact));
-
-// router.delete("/:contactId", auth, isValidId, ctrlWrraper(ctrl.removeContact));
-
-// router.patch(
-//   "/:contactId",
-//   auth,
-//   isValidId,
-//   // validation(joiSchema),
-//   ctrlWrraper(ctrl.updateContact)
-// );
-
-// router.patch(
-//   "/:contactId/favorite",
-//   auth,
-//   isValidId,
-//   validation(joiStatusSchema),
-//   ctrlWrraper(ctrl.updateStatus)
-// );
+router.post("/:ingridient", auth, ctrlWrraper(contr.addIngridient));
+router.get("/shopping", auth, ctrlWrraper(contr.getShoppingIngridients));
+router.delete("/:ingridient", auth, contr.deleteIngridients);
 
 module.exports = router;
