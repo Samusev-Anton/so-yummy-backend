@@ -6,11 +6,11 @@ const recipesMainPage = async (req, res, next) => {
   //   const skip = (page - 1) * limit;
   //   const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };
 
-    const result = await Recipe.aggregate([
-      { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
-      { $project: { firstFour: { $slice: ["$items", 4] } } },
-      { $limit: 13 }, // Optional limit to the number of categories to return
-    ]);
+  const result = await Recipe.aggregate([
+    { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
+    { $project: { firstFour: { $slice: ["$items", 4] } } },
+    { $limit: 4 }, // Optional limit to the number of categories to return
+  ]);
 
   res.status(201).json({
     status: "success",
