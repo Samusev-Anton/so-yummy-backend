@@ -2,13 +2,14 @@ const { sendEmail } = require("../../helpers");
 const { Unauthorized } = require("http-errors");
 
 const subscribe = async (req, res) => {
-  const { email } = req.body;
-  // const existEmail = req.user.email;
-  // if (email !== existEmail) {
-  //   throw new Unauthorized(
-  //     `The email:${email} you entered does not match yours. Please enter correct email`
-  //   );
-  // }
+  const { email } = req.user;
+  console.log(email);
+  const existEmail = req.user.email;
+  if (email !== existEmail) {
+    throw new Unauthorized(
+      `The email:${email} you entered does not match yours. Please enter correct email`
+    );
+  }
 
   const mail = {
     to: email,
