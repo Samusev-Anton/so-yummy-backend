@@ -21,7 +21,7 @@ router.post("/signup", validation(joiSignUpSchema), ctrlWrraper(ctrl.signUp));
 
 router.post("/signin", validation(joiSignInSchema), ctrlWrraper(ctrl.signIn));
 
-router.get("/logout", auth, ctrlWrraper(ctrl.logOut));
+router.post("/logout", auth, ctrlWrraper(ctrl.logOut));
 
 router.post(
   "/subscribe",
