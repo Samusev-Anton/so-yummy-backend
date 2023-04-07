@@ -2,6 +2,7 @@
 
 const getCurrent = async (req, res) => {
   const currentUser = req.user;
+
   res.json({
     status: "success",
     code: 200,
