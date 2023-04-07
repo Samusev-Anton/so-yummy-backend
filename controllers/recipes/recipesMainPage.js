@@ -7,6 +7,9 @@ const recipesMainPage = async (req, res, next) => {
   //   const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };
 
   const result = await Recipe.aggregate([
+    // { $sort: { likes_count: -1 } },
+    { $sort: { popularity: -1 } },
+
     { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
     { $project: { firstFour: { $slice: ["$items", 4] } } },
     { $limit: 4 }, // Optional limit to the number of categories to return
