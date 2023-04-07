@@ -20,11 +20,7 @@ const signIn = async (req, res, next) => {
   res.status(200).json({
     status: "success",
     code: 200,
-    user: {
-      email: result.email,
-      subscription: result.subscription,
-      token,
-    },
+    user: result,
     // data: {
     //   token,
     //   user: {
