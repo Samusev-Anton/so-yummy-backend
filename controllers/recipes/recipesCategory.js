@@ -2,11 +2,9 @@ const { Recipe } = require("../../models");
 
 const recipesCategory = async (req, res) => {
   const { category } = req.params;
-  console.log(category);
-  // const { _id } = req.user;
-  const { page = 1, limit = 10 } = req.query;
+
+  const { page = 1, limit = 12 } = req.query;
   const skip = (page - 1) * limit;
-  // const objSearch = favorite ? { owner: _id, favorite: true } : { owner: _id };
   const result = await Recipe.find(
     { category: { $regex: category, $options: "i" } },
     "",
@@ -15,8 +13,6 @@ const recipesCategory = async (req, res) => {
       limit: Number(limit),
     }
   );
-  // .populate("owner", "_id email");
-  // const result = await Recipe.find({ category: category });
 
   res.status(201).json({
     status: "success",
