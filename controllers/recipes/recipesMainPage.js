@@ -8,7 +8,29 @@ const recipesMainPage = async (req, res, next) => {
 
   const result = await Recipe.aggregate([
     // { $sort: { likes_count: -1 } },
-    { $sort: { popularity: -1 } },
+    // {
+    //   $match: {
+    //     favorite_count: {
+    //             $cond: {
+    //         if: { $isArray: "$likes" },
+    //         then: { $size: "$likes" },
+    //         else: "NA",
+    //       },
+    // }}}
+
+    {
+      $set: {
+        favorite_count: {
+          $cond: {
+            if: { $isArray: "$favorites" },
+            then: { $size: "$favorites" },
+            else: "NA",
+          },
+        },
+      },
+    },
+
+    { $sort: { favorite_count: -1 } },
 
     { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
     { $project: { firstFour: { $slice: ["$items", 4] } } },
