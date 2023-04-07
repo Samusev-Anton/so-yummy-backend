@@ -21,13 +21,6 @@ const signIn = async (req, res, next) => {
     status: "success",
     code: 200,
     user: result,
-    // data: {
-    //   token,
-    //   user: {
-    //     email: result.email,
-    //     subscription: result.subscription,
-    //   },
-    // },
   });
 };
 
