@@ -5,7 +5,6 @@ const { ObjectId } = require("mongodb");
 
 const recipeById = async (req, res, next) => {
   const { id } = req.params;
-  // const result = await Recipe.findById(id);
 
   const recipe = await Recipe.aggregate([
     {
