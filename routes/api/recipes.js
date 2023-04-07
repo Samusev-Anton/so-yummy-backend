@@ -1,8 +1,6 @@
 const express = require("express");
 
-const {
-  ctrlWrraper,
-} = require("../../middlewares");
+const { ctrlWrraper, auth } = require("../../middlewares");
 // const { Recipe, joiRecipeSchema } = require("../../models/recipe");
 
 const router = express.Router();
@@ -15,7 +13,7 @@ router.get("/main", ctrlWrraper(ctrl.recipesMainPage));
 router.get("/:category", ctrlWrraper(ctrl.recipesCategory));
 router.get("/description/:id", ctrlWrraper(ctrl.recipeById));
 router.get("/search/title", ctrlWrraper(ctrl.searchList));
-router.post("/", uploadCloud.single('img'),  ctrlWrraper(ctrl.addRecipe));
-
+router.post("/", auth, uploadCloud.single("img"), ctrlWrraper(ctrl.addRecipe));
+router.delete("/:id", auth, ctrlWrraper(ctrl.deleteRecipeById));
 
 module.exports = router;
