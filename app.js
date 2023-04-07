@@ -5,7 +5,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const contactsRouter = require("./routes/api/contacts");
 const userRouter = require("./routes/api/users");
 const authRouter = require("./routes/api/currentUser");
 const recipesRouter = require("./routes/api/recipes");
@@ -29,8 +28,6 @@ app.use("/api/recipes/", recipesRouter);
 app.use("/api/ingredients/", ingredientsRouter);
 app.use("/api/popular/", popularRecipesRouter);
 app.use("/api/favorite", favorite);
-
-app.use("/api/contacts", contactsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
