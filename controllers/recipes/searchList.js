@@ -1,12 +1,19 @@
 const { Recipe } = require("../../models");
 
 const searchList = async (req, res) => {
-  // console.log(req.params);
-  // console.log(req.query);
+  const { page = 1, limit = 4 } = req.query;
+  const skip = (page - 1) * limit;
 
-  const result = await Recipe.find({
-    title: { $regex: req.query.title, $options: "i" },
-  });
+  const result = await Recipe.find(
+    {
+      title: { $regex: req.query.title, $options: "i" },
+    },
+    "",
+    {
+      skip,
+      limit: Number(limit),
+    }
+  );
 
   res.status(201).json({
     status: "success",
