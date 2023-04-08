@@ -1,7 +1,7 @@
 const { User } = require("../../models");
 
 const addIngridient = async (req, res) => {
-  const { _id, shoppingList } = req.user;
+  const { _id } = req.user;
   const shopIngridient = req.body;
   console.log(shopIngridient);
 
