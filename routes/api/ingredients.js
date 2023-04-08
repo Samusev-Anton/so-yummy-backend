@@ -16,7 +16,7 @@ const { shopping: contr } = require("../../controllers");
 router.get("/", ctrlWrraper(ctrl.ingredientSearch));
 router.get("/list", ctrlWrraper(ctrl.ingredientList));
 
-router.post("/:ingridient", auth, ctrlWrraper(contr.addIngridient));
+router.post("/shopping", auth, ctrlWrraper(contr.addIngridient));
 router.get("/shopping", auth, ctrlWrraper(contr.getShoppingIngridients));
 router.delete("/:ingridient", auth, contr.deleteIngridients);
 

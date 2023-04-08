@@ -42,11 +42,7 @@ const userSignUpSchema = Schema(
         type: Schema.Types.ObjectId,
       },
     ],
-    shoppingList: [
-      {
-        type: Schema.Types.ObjectId,
-      },
-    ],
+    shoppingList: Array,
 
     // verify: {
     //   type: Boolean,
