@@ -3,6 +3,7 @@ const { Recipe } = require("../../models");
 const searchList = async (req, res) => {
   const { page = 1, limit = 12 } = req.query;
   const skip = (page - 1) * limit;
+  console.log(page);
 
   const result = await Recipe.find(
     {
