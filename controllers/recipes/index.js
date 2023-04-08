@@ -6,6 +6,7 @@ const searchList = require("./searchList");
 const popularRecipes = require("./popularRecipes");
 const addRecipe = require("./addRecipe");
 const deleteRecipeById = require("./deleteRecipeById");
+const getAddedRecipes = require("./getAddedRecipes");
 
 module.exports = {
   listCategories,
@@ -16,4 +17,5 @@ module.exports = {
   popularRecipes,
   addRecipe,
   deleteRecipeById,
+  getAddedRecipes,
 };
