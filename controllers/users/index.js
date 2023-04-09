@@ -9,6 +9,7 @@ const sendTempPassword = require("./sendTempPassword");
 const changePassword = require("./changePassword");
 const subscribe = require("./subscribe");
 const updateAvatarImage = require("./updateAvatarImage");
+const updateProfile = require("./updateProfile");
 
 module.exports = {
   signUp,
@@ -22,4 +23,5 @@ module.exports = {
   sendTempPassword,
   changePassword,
   updateAvatarImage,
+  updateProfile,
 };

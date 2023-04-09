@@ -44,6 +44,13 @@ router.patch(
   ctrlWrraper(ctrl.updateAvatarImage)
 );
 
+router.patch(
+  "/profile",
+  auth,
+  uploadAvatar.single("avatar"),
+  ctrlWrraper(ctrl.updateProfile)
+);
+
 // Закоментировал строки ввиду ненадобности
 // router.patch(
 //   "/avatars",
