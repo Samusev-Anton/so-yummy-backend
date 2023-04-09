@@ -8,7 +8,6 @@ const addRecipe = async (req, res, next) => {
     throw new Unauthorized(`Please authorize`);
   }
   const recipe = req.body;
-
   if (req.file) {
     const { path: url } = req.file;
     recipe.thumb = url;
