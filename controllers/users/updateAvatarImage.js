@@ -1,5 +1,5 @@
 const cloudinary = require("cloudinary").v2;
-const path = require("path");
+// const path = require("path");
 const { User } = require("../../models");
 const { HttpError } = require("../../helpers");
 
