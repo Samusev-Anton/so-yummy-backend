@@ -34,7 +34,7 @@ const recipesMainPage = async (req, res, next) => {
 
     { $group: { _id: "$category", items: { $push: "$$ROOT" } } },
     { $project: { firstFour: { $slice: ["$items", 4] } } },
-    { $limit: 4 }, // Optional limit to the number of categories to return
+    { $limit: 13 }, // Optional limit to the number of categories to return
   ]);
 
   res.status(201).json({

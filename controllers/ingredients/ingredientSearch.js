@@ -5,8 +5,8 @@ const { Ingredient, Recipe } = require("../../models");
 const ingredientSearch = async (req, res) => {
   const { ingredients = "" } = req.query;
 
-  const { page = 1, limit = 12 } = req.query;
-  const skip = (page - 1) * limit;
+  // const { page = 1, limit = 12 } = req.query;
+  // const skip = (page - 1) * limit;
 
   const searchIngredient = await Ingredient.find({
     ttl: { $regex: ingredients, $options: "i" },
@@ -23,12 +23,12 @@ const ingredientSearch = async (req, res) => {
           },
         },
       },
-    },
-    "",
-    {
-      skip,
-      limit: Number(limit),
     }
+    // "",
+    // {
+    //   skip,
+    //   limit: Number(limit),
+    // }
   );
 
   res.status(201).json({
