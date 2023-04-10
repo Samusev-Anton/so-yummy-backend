@@ -11,19 +11,28 @@ const addRecipe = async (req, res, next) => {
   if (req.file) {
     const { path: url } = req.file;
     recipe.thumb = url;
+    recipe.owner = _id;
+    const newRecipe = await Recipe.create(recipe);
+
+    res.status(201).json({
+      status: "success",
+      code: 201,
+      data: newRecipe,
+    });
   } else {
-    fetchApi(recipe.title, 1).then(
-      (data) => (recipe.thumb = data.hits[0].pageURL)
-    );
-  }
+  const url = await fetchApi(recipe.title, 1);
   recipe.owner = _id;
+  recipe.thumb =
+    url.hits.length > 0
+      ? url.hits[0].webformatURL
+      : "https://pixabay.com/photos/muffin-eggs-cake-pastries-easter-7870491/";
   const newRecipe = await Recipe.create(recipe);
 
   res.status(201).json({
     status: "success",
     code: 201,
     data: newRecipe,
-  });
+  })}
 };
 
 module.exports = addRecipe;
