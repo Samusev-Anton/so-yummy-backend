@@ -11,6 +11,7 @@ const recipesRouter = require("./routes/api/recipes");
 const ingredientsRouter = require("./routes/api/ingredients");
 const popularRecipesRouter = require("./routes/api/popular");
 const favorite = require("./routes/api/favorite");
+// const swaggerUi = require("./routes/api/swagger");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/recipes/", recipesRouter);
 app.use("/api/ingredients/", ingredientsRouter);
 app.use("/api/popular/", popularRecipesRouter);
 app.use("/api/favorite", favorite);
+// app.use("/api/api-docs", swaggerUi.serve);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });

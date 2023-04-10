@@ -12,6 +12,6 @@ router.get("/list", auth, ctrlWrraper(ctrl.ingredientList));
 
 router.post("/shopping", auth, ctrlWrraper(contr.addIngridient));
 router.get("/shopping", auth, ctrlWrraper(contr.getShoppingIngridients));
-router.delete("/:ingridient", auth, contr.deleteIngridients);
+router.delete("/:ingridient", auth, ctrlWrraper(contr.deleteIngridients));
 
 module.exports = router;
