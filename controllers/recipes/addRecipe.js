@@ -11,7 +11,15 @@ const addRecipe = async (req, res, next) => {
   if (req.file) {
     const { path: url } = req.file;
     recipe.thumb = url;
-  }
+    recipe.owner = _id;
+    const newRecipe = await Recipe.create(recipe);
+
+    res.status(201).json({
+      status: "success",
+      code: 201,
+      data: newRecipe,
+    });
+  } else {
   const url = await fetchApi(recipe.title, 1);
   recipe.owner = _id;
   recipe.thumb =
@@ -24,7 +32,7 @@ const addRecipe = async (req, res, next) => {
     status: "success",
     code: 201,
     data: newRecipe,
-  });
+  })}
 };
 
 module.exports = addRecipe;
