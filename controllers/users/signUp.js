@@ -2,8 +2,6 @@ const { User } = require("../../models");
 const { Conflict } = require("http-errors");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
-// const { v4: uuidv4 } = require("uuid");
-// const { sendEmail } = require("../../helpers");
 
 const signUp = async (req, res, next) => {
   const { name, email, password } = req.body;
@@ -20,12 +18,6 @@ const signUp = async (req, res, next) => {
     avatarURL,
   });
 
-  // const mail = {
-  //   to: email,
-  //   subject: "Varificate email",
-  //   html: `<p><a target="_blank" href="http://localhost:3000/goit-react-hw-08-phonebook/verify/${verificationToken}">Click to verify email</a></p>`,
-  // };
-  // await sendEmail(mail);
   res.status(201).json({
     status: "success",
     code: 201,

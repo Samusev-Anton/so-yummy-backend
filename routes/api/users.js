@@ -47,22 +47,6 @@ router.patch(
   ctrlWrraper(ctrl.updateProfile)
 );
 
-// Закоментировал строки ввиду ненадобности
-// router.patch(
-//   "/avatars",
-//   authenticate,
-//   uploadAvatar.single("avatar"),
-//   ctrl.updateAvatarImage
-// );
-
-// router.patch(
-//   "/cloudavatars",
-//   auth,
-//   uploadCloud.single("avatar"),
-//   // validation(joiAvatarSchema),
-//   ctrlWrraper(ctrl.updateAvatarToCloud)
-// );
-
 router.patch("/verify/:verificationToken", ctrlWrraper(ctrl.verifyEmail));
 
 router.get("/:email", ctrlWrraper(ctrl.sendTempPassword));

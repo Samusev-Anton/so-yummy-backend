@@ -7,24 +7,19 @@ const userSignUpSchema = Schema(
   {
     name: {
       type: String,
-      // required: [true, "Set name for contact"],
+      required: [true, "Set name for contact"],
       minlength: 4,
     },
     email: {
       type: String,
-      // required: [true, " email is required"],
+      required: [true, " email is required"],
       unique: true,
     },
     password: {
       type: String,
-      // required: [true, "Password is required"],
+      required: [true, "Password is required"],
       minlength: 6,
     },
-    // subscription: {
-    //   type: String,
-    //   enum: ["starter", "pro", "business"],
-    //   default: "starter",
-    // },
     token: {
       type: String,
       default: null,
@@ -43,15 +38,6 @@ const userSignUpSchema = Schema(
       },
     ],
     shoppingList: Array,
-
-    // verify: {
-    //   type: Boolean,
-    //   default: false,
-    // },
-    // verificationToken: {
-    //   type: String,
-    //   required: [true, "Verify token is required"],
-    // },
   },
   { versionKey: false, timestamps: true }
 );
@@ -73,9 +59,9 @@ const joiSignInSchema = Joi.object({
   password: Joi.string().required().min(6),
 });
 
-const joiSubscriptionSchema = Joi.object({
-  subscription: Joi.string().valid("starter", "pro", "business").required(),
-});
+// const joiSubscriptionSchema = Joi.object({
+//   subscription: Joi.string().valid("starter", "pro", "business").required(),
+// });
 
 // какой тут метод нужно передавать для валидации файла?
 // const joiAvatarSchema = Joi.object({
@@ -88,5 +74,5 @@ module.exports = {
   User,
   joiSignUpSchema,
   joiSignInSchema,
-  joiSubscriptionSchema,
+  // joiSubscriptionSchema,
 };

@@ -1,4 +1,3 @@
-// const { NotFound } = require("http-errors");
 const { Recipe } = require("../../models");
 const HttpError = require("../../helpers/HttpError");
 const { ObjectId } = require("mongodb");

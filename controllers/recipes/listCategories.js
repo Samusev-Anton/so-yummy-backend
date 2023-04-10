@@ -1,4 +1,3 @@
-// const { Recipe } = require("../../models");
 const LIST = [
   "beef",
   "dessert",

@@ -6,6 +6,4 @@ module.exports = {
   User,
   Recipe,
   Ingredient,
-  // UserSignUp,
-  // UserSignIn,
 };

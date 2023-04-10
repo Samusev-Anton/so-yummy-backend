@@ -1,8 +1,6 @@
 const { User } = require("../../models");
 const bcrypt = require("bcryptjs");
 
-// const { Unauthorized } = require("http-errors");
-
 const changePassword = async (req, res) => {
   const { password, email } = req.body;
   const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
