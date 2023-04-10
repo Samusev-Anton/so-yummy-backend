@@ -8,11 +8,12 @@ const addRecipe = async (req, res, next) => {
     throw new Unauthorized(`Please authorize`);
   }
   const recipe = req.body;
+  console.log(recipe.title);
   if (req.file) {
     const { path: url } = req.file;
     recipe.thumb = url;
     recipe.owner = _id;
-    const newRecipe = await Recipe.create(recipe);
+    const newRecipe = await Recipe.create({...recipe});
 
     res.status(201).json({
       status: "success",
@@ -26,7 +27,7 @@ const addRecipe = async (req, res, next) => {
     url.hits.length > 0
       ? url.hits[0].webformatURL
       : "https://pixabay.com/photos/muffin-eggs-cake-pastries-easter-7870491/";
-  const newRecipe = await Recipe.create(recipe);
+  const newRecipe = await Recipe.create({...recipe});
 
   res.status(201).json({
     status: "success",
