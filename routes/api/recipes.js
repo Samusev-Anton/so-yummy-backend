@@ -14,7 +14,7 @@ router.get("/:category", ctrlWrraper(ctrl.recipesCategory));
 router.get("/description/:id", ctrlWrraper(ctrl.recipeById));
 router.get("/search/title", ctrlWrraper(ctrl.searchList));
 router.post("/", auth, uploadCloud.single("img"), ctrlWrraper(ctrl.addRecipe));
-router.delete("/:id", ctrlWrraper(ctrl.deleteRecipeById));
+router.delete("/:id", auth, ctrlWrraper(ctrl.deleteRecipeById));
 router.get("/", auth, ctrlWrraper(ctrl.getAddedRecipes));
 
 module.exports = router;
