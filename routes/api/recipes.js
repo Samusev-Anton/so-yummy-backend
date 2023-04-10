@@ -13,8 +13,8 @@ router.get("/main", ctrlWrraper(ctrl.recipesMainPage));
 router.get("/:category", ctrlWrraper(ctrl.recipesCategory));
 router.get("/description/:id", ctrlWrraper(ctrl.recipeById));
 router.get("/search/title", ctrlWrraper(ctrl.searchList));
-router.post("/", uploadCloud.single("img"), ctrlWrraper(ctrl.addRecipe));
+router.post("/", auth, uploadCloud.single("img"), ctrlWrraper(ctrl.addRecipe));
 router.delete("/:id", ctrlWrraper(ctrl.deleteRecipeById));
-router.get("/", ctrlWrraper(ctrl.getAddedRecipes));
+router.get("/", auth, ctrlWrraper(ctrl.getAddedRecipes));
 
 module.exports = router;
