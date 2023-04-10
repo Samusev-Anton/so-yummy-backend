@@ -25,7 +25,7 @@ app.use(express.static("public"));
 
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
-app.use("/api/recipes/", recipesRouter);
+app.use("/api/recipes", recipesRouter);
 app.use("/api/ingredients/", ingredientsRouter);
 app.use("/api/popular/", popularRecipesRouter);
 app.use("/api/favorite", favorite);

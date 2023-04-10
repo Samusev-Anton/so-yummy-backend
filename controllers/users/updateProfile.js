@@ -35,8 +35,10 @@ const updateProfile = async (req, res) => {
       updatedFields.name = name;
     }
 
-    await User.findByIdAndUpdate(_id, updatedFields, { new: true });
-    const updatedUser = await User.findById(_id);
+    const updatedUser = await User.findByIdAndUpdate(_id, updatedFields, {
+      new: true,
+    });
+    // const updatedUser = await User.findById(_id);
     res.json(updatedUser);
   } catch (error) {
     throw HttpError(500, "Failed to update profile!");
