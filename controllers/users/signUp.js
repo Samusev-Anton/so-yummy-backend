@@ -1,7 +1,7 @@
 const { User } = require("../../models");
 const { Conflict } = require("http-errors");
 const bcrypt = require("bcryptjs");
-const gravatar = require("gravatar");
+// const gravatar = require("gravatar");
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
 
@@ -17,7 +17,7 @@ const signUp = async (req, res, next) => {
   if (user) {
     throw new Conflict(`User with ${email} already exist`);
   }
-  const avatarURL = gravatar.url(email);
+  // const avatarURL = gravatar.url(email);
   const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "24h" });
 
@@ -25,7 +25,7 @@ const signUp = async (req, res, next) => {
     name,
     email,
     password: hashPassword,
-    avatarURL,
+    // avatarURL,
     token,
   });
 
