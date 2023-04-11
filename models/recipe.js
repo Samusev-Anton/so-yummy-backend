@@ -7,34 +7,26 @@ const recipeSchema = Schema(
     title: {
       type: String,
       // required: [true, "Set name for contact"],
-      minlength: 3,
+    },
+    about: {
+      type: String,
+      // required: [true, "Set name for contact"],
+    },
+    time: {
+      type: String,
+      // required: [true, "Set name for contact"],
+    },
+    preparation: {
+      type: String,
+      // required: [true, "Set name for contact"],
     },
     category: {
       type: String,
-      enum: [
-        "Beef",
-        "Dessert",
-        "Breakfast",
-        "Chicken",
-        "Goat",
-        "Lamb",
-        "Miscellaneous",
-        "Pasta",
-        "Pork",
-        "Seafood",
-        "Starter",
-        "Side",
-        "Vegan",
-        "Vegetarian",
-      ],
-
       // required: [true, " email is required"],
-      unique: true,
     },
     area: {
       type: String,
       // required: [true, "Password is required"],
-      minlength: 6,
     },
     instructions: {
       type: String,
