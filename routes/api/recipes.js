@@ -12,7 +12,7 @@ router.get("/categories", ctrlWrraper(ctrl.listCategories));
 router.get("/main", ctrlWrraper(ctrl.recipesMainPage));
 router.get("/:category", ctrlWrraper(ctrl.recipesCategory));
 router.get("/description/:id", ctrlWrraper(ctrl.recipeById));
-router.get("/search/title", ctrlWrraper(ctrl.searchList));
+router.get("/search/title", auth, ctrlWrraper(ctrl.searchList));
 router.post("/", auth, uploadCloud.single("img"), ctrlWrraper(ctrl.addRecipe));
 router.delete("/:id", auth, ctrlWrraper(ctrl.deleteRecipeById));
 router.get("/", auth, ctrlWrraper(ctrl.getAddedRecipes));
