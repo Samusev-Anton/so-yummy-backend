@@ -26,7 +26,7 @@ const userSignUpSchema = Schema(
     },
     avatarURL: {
       type: String,
-      required: true,
+      // required: true,
     },
     avatarCloudId: {
       type: String,
