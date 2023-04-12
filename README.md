@@ -1,34 +1,64 @@
-## GoIT Node.js Course Template Homework
+A project app for recipe lovers, which can be accessed via authorization.
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+The project is based on Node.js, Express, and MongoDB. The Cloudinary service is connected. The documentation was created using the Swagger service.
 
-Додайте ментора до колаборації
+To run the project locally, follow these steps:
 
-Для кожної домашньої роботи створюйте свою гілку.
+Clone the repository;
+Install the dependencies;
+Run the following command: npm run dev;
+                                                Auth Endpoints
+HTTP метод                             Endpoint                                     Описание
+POST                                    /auth/signup                                User registration
+POST                                    /auth/signin                                User login
+POST                                    /auth/logout                                User logout
+POST                                    /auth/refresh                               User refresh
+GET                                     /auth/:userId:                              Get user By Id
+PUT                                     /auth/:userId                               Update user by Id
+POST                                    /auth/avatars                               Upload a file
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+                                       Recipes Endpoints
 
-Кожна нова гілка для др повинна робитися з master
+Method                                  Endpoint                          Description                                
+GET                                     /recipes/category-list              Get category list
+GET                                     /recipes/main-page                  Get main page
+GET                                     /recipes/:category                  Get recipes by category
+GET                                     /recipes/id/:id                     Get recipe by id
+GET                                     /recipes/                           Get user's recipes
+GET                                     /recipes/search/recipes             Search recipe by title/ingredient
+POST                                    /recipes/add                        Add new Recipe
+DELETE                                  /recipes/remove/:id                 Remove recipe by id
 
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
+                                    Shoping-list endpoints              
 
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
+HTTP Method                             Endpoint                            Description
+GET                                     /shopping-list/                     Get shopping-list
+POST                                    /shopping-list/add                  Add to shopping-list
+DELETE                                  /shopping-list/remove/:id           Delete ingredients
 
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
+Ingredients endpoints
 
-### Команди:
+HTTP Method                             Endpoint                             Description
+GET                                     /ingredients/list                    Get Ingredients list
+GET                                     /ingredients/:title                  Get recipes by ingredient
 
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+                                   Recipe's favorite endpoints
+
+HTTP Method                             Endpoint                             Description
+GET                                     /favorite/list                       Get favorite recipe's
+POST                                    /favorite/:id                        Add recipe to favorite
+PUT                                     /favorite/:id                        Update recipe in favorite
+
+                                    Subscribe endpoints
+
+HTTP Method                             Endpoint                             Description
+POST                                    /subscribe/                          Subscribe for news
+GET                                     /subscribe/remove/:email             Unsubscribe for news
+
+Popular-recipe endpoints
+
+HTTP Method                             Endpoint                              Description
+GET                                     /popular-recipe/                      Get popular recipes
 
 ryIm7KHO7v2b1Ncv
 
