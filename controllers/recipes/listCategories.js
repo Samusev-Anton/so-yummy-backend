@@ -18,7 +18,7 @@ const LIST = [
 const listCategories = async (req, res, next) => {
   res.json({
     status: "success",
-    code: 200,
+    // code: 200,
     data: LIST,
   });
 };
