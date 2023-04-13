@@ -38,13 +38,13 @@ DELETE                                  /shopping-list/remove/:id           Dele
 
 Ingredients endpoints
 
-HTTP Method                             Endpoint                             Description
-GET                                     /ingredients/list                    Get Ingredients list
+HTTP Method-----------------------------Endpoint-----------------------------Description
+GET-------------------------------------/ingredients/list--------------------Get Ingredients list
 GET                                     /ingredients/:title                  Get recipes by ingredient
 
                                    Recipe's favorite endpoints
 
-HTTP Method                             Endpoint                             Description
+HTTP Method-----------------------------Endpoint-----------------------------Description
 GET                                     /favorite/list                       Get favorite recipe's
 POST                                    /favorite/:id                        Add recipe to favorite
 PUT                                     /favorite/:id                        Update recipe in favorite
