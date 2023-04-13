@@ -9,6 +9,7 @@ const { shopping: contr } = require("../../controllers");
 
 router.get("/", auth, ctrlWrraper(ctrl.ingredientSearch));
 router.get("/list", auth, ctrlWrraper(ctrl.ingredientList));
+router.get("/filter", auth, ctrlWrraper(ctrl.ingredientFilter));
 
 router.post("/shopping", auth, ctrlWrraper(contr.addIngridient));
 router.get("/shopping", auth, ctrlWrraper(contr.getShoppingIngridients));

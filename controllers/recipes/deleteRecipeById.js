@@ -21,7 +21,7 @@ const deleteRecipeById = async (req, res) => {
 
   res.status(200).json({
     status: "success",
-    code: 200,
+    // code: 200,
     data: deletedRecipe,
   });
 };

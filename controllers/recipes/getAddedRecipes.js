@@ -8,7 +8,7 @@ const getAddedRecipes = async (req, res, next) => {
     const recipes = await Recipe.find({ owner: ownerId });
     res.json({
       status: "success",
-      code: 200,
+      // code: 200,
       data: recipes,
     });
   } catch (error) {
