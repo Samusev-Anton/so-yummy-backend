@@ -11,6 +11,11 @@ const changePassword = async (req, res) => {
   );
 
   console.log(updatePassword);
+  res.status(200).json({
+    status: "success",
+    code: 201,
+    data: { message: "You password already changed" },
+  });
 };
 
 module.exports = changePassword;
