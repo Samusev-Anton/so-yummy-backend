@@ -38,13 +38,13 @@ DELETE                                  /shopping-list/remove/:id           Dele
 
 Ingredients endpoints
 
-HTTP Method                             Endpoint                             Description
-GET                                     /ingredients/list                    Get Ingredients list
+HTTP Method-----------------------------Endpoint-----------------------------Description
+GET-------------------------------------/ingredients/list--------------------Get Ingredients list
 GET                                     /ingredients/:title                  Get recipes by ingredient
 
                                    Recipe's favorite endpoints
 
-HTTP Method                             Endpoint                             Description
+HTTP Method-----------------------------Endpoint-----------------------------Description
 GET                                     /favorite/list                       Get favorite recipe's
 POST                                    /favorite/:id                        Add recipe to favorite
 PUT                                     /favorite/:id                        Update recipe in favorite
@@ -60,6 +60,4 @@ Popular-recipe endpoints
 HTTP Method                             Endpoint                              Description
 GET                                     /popular-recipe/                      Get popular recipes
 
-ryIm7KHO7v2b1Ncv
 
-mongodb+srv://Anton:ryIm7KHO7v2b1Ncv@cluster0.ojv1dqr.mongodb.net/?retryWrites=true&w=majority
