@@ -17,6 +17,8 @@ const addRecipe = async (req, res, next) => {
     throw new Unauthorized(`Please authorize`);
   }
   let thumb = null;
+  const normIngr = JSON.parse(req.body.ingredients);
+  console.log(normIngr);
 
   try {
     if (req.file) {
@@ -29,7 +31,7 @@ const addRecipe = async (req, res, next) => {
     throw HttpError(400, "Failed to create new Recipe!");
   }
 
-  const newRecipe = { ...req.body, owner: _id, thumb };
+  const newRecipe = { ...req.body, owner: _id, thumb, ingredients: normIngr };
 
   const ownerRecipe = await Recipe.create(newRecipe);
 
